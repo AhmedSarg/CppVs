@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
-
-class CString
+//osama ayman
+class cstring
 {
 	string x;
 public:
-	CString()
+	cstring()
 	{
 		x = "";
 	}
-	CString(string str)
+	cstring(string str)
 	{
 		x = str;
 	}
@@ -21,13 +21,13 @@ public:
 	{
 		x = str;
 	}
-	CString operator+(CString conc)
+	cstring operator+(cstring conc)
 	{
-		CString tmp;
+		cstring tmp;
 		tmp.x = this->x + conc.x;
 		return tmp;
 	}
-	void operator==(CString c2)
+	void operator==(cstring c2)
 	{
 		bool eq = true;
 		if (x.length() == (c2.getX()).length())
@@ -58,12 +58,12 @@ int main()
 	string strTmp;
 	cout << "Enter A String : ";
 	cin >> strTmp;
-	CString obj1(strTmp);
+	cstring obj1(strTmp);
 	cout << "Enter Another String : ";
 	cin >> strTmp;
 	
-	CString obj2(strTmp);
-	CString obj3 = obj1 + obj2;
+	cstring obj2(strTmp);
+	cstring obj3 = obj1 + obj2;
 	cout << "Concatenation Of the Two Strings : " << obj3.getX() << endl;
 	obj1 == obj2;
 }
