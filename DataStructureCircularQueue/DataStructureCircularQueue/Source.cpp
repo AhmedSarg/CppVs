@@ -24,13 +24,13 @@ bool circularQueue::isEmpty() {
 }
 
 bool circularQueue::isFull() {
-	if (rear = SIZE - 1 && front == 0)
+	if ((rear + 1) % SIZE == front)
 		return true;
 	return false;
 }
 
 void circularQueue::enqueue(int value) {
-	if ((rear + 1) % SIZE == front) {
+	if (isFull()) {
 		cout << "Circular Queue Overflow" << endl;
 		return;
 	}
