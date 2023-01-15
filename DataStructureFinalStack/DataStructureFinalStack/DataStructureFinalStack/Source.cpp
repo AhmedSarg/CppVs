@@ -75,24 +75,8 @@ int power(int op1, int op2) {
 	return result;
 }
 
-int main() {
+int postfixEvaluation(string postfix) {
 	stack st;
-	/*st.push(10);
-	st.push(20);
-	st.push(30);
-	st.push(40);
-	st.push(50);
-	st.pop();
-	st.pop();
-	st.pop();
-	st.pop();
-	st.pop();
-	st.pop();
-	st.push(60);
-	st.display();*/
-	string postfix;
-	cout << "Enter the postfix : ";
-	cin >> postfix;
 	for (int i = 0; i < postfix.length(); i++) {
 		if (!isOperator(postfix[i]))
 			st.push(postfix[i] - 48);
@@ -124,5 +108,12 @@ int main() {
 			}
 		}
 	}
-	cout << "Result : " << st.pop() << endl;
+	return st.pop();
+}
+
+int main() {
+	string postfix;
+	cout << "Enter the postfix : ";
+	cin >> postfix;
+	cout << "Result : " << postfixEvaluation(postfix) << endl;
 }
