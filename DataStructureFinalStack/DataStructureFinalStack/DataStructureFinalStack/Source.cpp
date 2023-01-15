@@ -62,9 +62,22 @@ stack::~stack() {
 	delete arr;
 }
 
+bool isOperator(char op) {
+	if (op == '+' || op == '-' || op == '*' || op == '/' || op == '^' || op == '%')
+		return true;
+	return false;
+}
+
+int power(int op1, int op2) {
+	int result = 1;
+	for (int i = 0; i < op2; i++)
+		result *= op1;
+	return result;
+}
+
 int main() {
 	stack st;
-	st.push(10);
+	/*st.push(10);
 	st.push(20);
 	st.push(30);
 	st.push(40);
@@ -76,5 +89,40 @@ int main() {
 	st.pop();
 	st.pop();
 	st.push(60);
-	st.display();
+	st.display();*/
+	string postfix;
+	cout << "Enter the postfix : ";
+	cin >> postfix;
+	for (int i = 0; i < postfix.length(); i++) {
+		if (!isOperator(postfix[i]))
+			st.push(postfix[i] - 48);
+		else {
+			int operator2 = st.pop();
+			int operator1 = st.pop();
+			switch (postfix[i]) {
+			case '+':
+				st.push(operator1 + operator2);
+				break;
+			case '-':
+				st.push(operator1 - operator2);
+				break;
+			case '*':
+				st.push(operator1 * operator2);
+				break;
+			case '/':
+				st.push(operator1 / operator2);
+				break;
+			case '^':
+				st.push(power(operator1, operator2));
+				break;
+			case '%':
+				st.push(operator1 % operator2);
+				break;
+			default:
+				st.push(-1);
+				break;
+			}
+		}
+	}
+	cout << "Result : " << st.pop() << endl;
 }
