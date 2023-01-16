@@ -7,5 +7,5 @@ struct node {
 };
 
 class linkedList {
-
+private:
 };
