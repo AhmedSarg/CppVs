@@ -21,35 +21,76 @@ queue::queue() {
 }
 
 bool queue::isEmpty() {
-	if (front <= -1 && rear == -1)
+	if (front == -1)
 		return true;
 	return false;
 }
 
 bool queue::isFull() {
-	if (rear >= max_size - 1)
+	if ((rear == max_size - 1 && front == 0) || front == rear + 1)
 		return true;
 	return false;
 }
 
 void queue::enqueue(int value) {
-	if (isEmpty()) {
-		rear = 0;
-		front = 0;
-		arr[rear] = value;
-	}
+	if (isFull())
+		cout << "Queue Overflow." << endl;
 	else {
-		if (isFull()) {
-			cout << "Queue Overflow." << endl;
-			return;
-		}
-		arr[++rear] = value;
+		if (front == -1)
+			front = 0;
+		rear = (rear + 1) % max_size;
+		arr[rear] = value;
 	}
 }
 
 int queue::dequeue() {
+	int item;
 	if (isEmpty()) {
 		cout << "Queue Underflow." << endl;
-		return -1;
+		exit(0);
 	}
+	else if (front == rear) {
+		item = arr[front];
+		front = -1;
+		rear = -1;
+	}
+	else {
+		item = arr[front];
+		front = (front + 1) % max_size;
+	}
+	return item;
+}
+
+void queue::display() {
+	if (front > rear) {
+		for (int i = rear; i <= front; i++)
+			cout << arr[i] << " ";
+		cout << endl;
+	}
+	else {
+		for (int i = front; i <= rear; i++)
+			cout << arr[i] << " ";
+		cout << endl;
+	}
+}
+
+int main() {
+	queue qu;
+	qu.enqueue(10);
+	qu.enqueue(20);
+	qu.enqueue(30);
+	qu.enqueue(40);
+	qu.enqueue(50);
+	qu.dequeue();
+	qu.dequeue();
+	qu.dequeue();
+	qu.dequeue();
+	qu.dequeue();
+	qu.enqueue(60);
+	qu.enqueue(70);
+	qu.enqueue(80);
+	qu.enqueue(90);
+	qu.enqueue(100);
+	qu.enqueue(110);
+	qu.display();
 }
