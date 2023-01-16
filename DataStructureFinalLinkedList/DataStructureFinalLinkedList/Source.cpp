@@ -32,6 +32,19 @@ node* LinkedList::createNode(int value) {
 	return newNode;
 }
 
+void LinkedList::insertLast(int value) {
+	node* newNode = createNode(value);
+	if (head == NULL) {
+		head = newNode;
+	}
+	else {
+		node* temp = head;
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = newNode;
+	}
+}
+
 void LinkedList::insertFirst(int value) {
 	node* newNode = createNode(value);
 	if (head == NULL) {
@@ -40,5 +53,27 @@ void LinkedList::insertFirst(int value) {
 	else {
 		newNode->next = head;
 		head = newNode;
+	}
+}
+
+void LinkedList::insertPosition(int pos, int value) {
+	if (head == NULL && pos > 1)
+		cout << "Position Greater Than Existing Elements." << endl;
+	else if (head == NULL && pos == 1) {
+		node* newNode = createNode(value);
+		head = newNode;
+	}
+	else {
+		node* newNode = createNode(value);
+		node* temp = head;
+		for (int i = 1; i < pos - 1; i++) {
+			if (temp == NULL) {
+				cout << "Position Greater Than Existing Elements." << endl;
+				exit(0);
+			}
+			temp = temp->next;
+		}
+		newNode->next = temp->next;
+		temp->next = newNode;
 	}
 }
