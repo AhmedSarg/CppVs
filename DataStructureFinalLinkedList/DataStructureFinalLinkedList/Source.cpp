@@ -96,7 +96,7 @@ int LinkedList::deleteLast() {
 	}
 	else {
 		node* temp = head;
-		node* prev;
+		node* prev = head;
 		while (temp->next != NULL) {
 			prev = temp;
 			temp = temp->next;
@@ -134,9 +134,12 @@ int LinkedList::deletePosition(int pos) {
 		val = -1;
 		cout << "Position Greater Than Existing Elements." << endl;
 	}
+	if (pos == 1) {
+		val = deleteFirst();
+	}
 	else {
 		node* temp = head;
-		node* prev;
+		node* prev = head;
 		for (int i = 1; i < pos; i++) {
 			prev = temp;
 			temp = temp->next;
@@ -146,6 +149,27 @@ int LinkedList::deletePosition(int pos) {
 			}
 		}
 		prev->next = NULL;
+		val = temp->data;
 		deleteNode(temp);
 	}
+	return val;
+}
+
+void LinkedList::display() {
+	node* temp = head;
+	while (temp != NULL) {
+		cout << temp->data << " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
+int main() {
+	LinkedList ll;
+	ll.insertLast(40);
+	ll.insertFirst(20);
+	ll.insertPosition(2, 30);
+	ll.insertFirst(10);
+	ll.insertLast(50);
+	ll.display();
 }
