@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8bbd46b7-3790-4501-8831-67ee59b5d2ca}</ProjectGuid>
-    <RootNamespace>DataStructureFinalTree</RootNamespace>
+    <ProjectGuid>{5d7988f8-dbb2-4a90-ac4d-f463e5f785eb}</ProjectGuid>
+    <RootNamespace>GoToOveflow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8bbd46b7-3790-4501-8831-67ee59b5d2ca}</ProjectGuid>
-    <RootNamespace>DataStructureFinalTree</RootNamespace>
+    <ProjectGuid>{90401d2a-9ce8-4727-ad3f-8edd1e4ef3d5}</ProjectGuid>
+    <RootNamespace>LastDigitandLastproblem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

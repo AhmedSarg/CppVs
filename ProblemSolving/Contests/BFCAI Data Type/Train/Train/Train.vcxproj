@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8bbd46b7-3790-4501-8831-67ee59b5d2ca}</ProjectGuid>
-    <RootNamespace>DataStructureFinalTree</RootNamespace>
+    <ProjectGuid>{6187c28b-9ba8-47fb-a8de-847576964db9}</ProjectGuid>
+    <RootNamespace>Train</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8bbd46b7-3790-4501-8831-67ee59b5d2ca}</ProjectGuid>
-    <RootNamespace>DataStructureFinalTree</RootNamespace>
+    <ProjectGuid>{f19c5e72-ea22-4654-925f-39fa14149886}</ProjectGuid>
+    <RootNamespace>Math</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
