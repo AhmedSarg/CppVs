@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{095d3e65-5540-462f-bb1c-81e28d1d5da1}</ProjectGuid>
-    <RootNamespace>BadNumbers</RootNamespace>
+    <ProjectGuid>{e3224569-9281-4380-a7ef-e64cf8b049ec}</ProjectGuid>
+    <RootNamespace>EvenNumbers</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
