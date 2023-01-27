@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9593b2b3-8e3b-4292-9373-bb4fc12da70a}</ProjectGuid>
-    <RootNamespace>InfinityGauntlet</RootNamespace>
+    <ProjectGuid>{cf5f892c-d4ba-4a15-af9a-3a6f12b5bceb}</ProjectGuid>
+    <RootNamespace>FizzBuzz</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
