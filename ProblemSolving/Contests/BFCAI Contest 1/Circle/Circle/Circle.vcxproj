@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0e1f2d71-a183-4a85-bafc-df4c91bfbf0a}</ProjectGuid>
-    <RootNamespace>FiveVariables</RootNamespace>
+    <ProjectGuid>{1115c85a-07f2-49c4-b512-542062f09127}</ProjectGuid>
+    <RootNamespace>Circle</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
