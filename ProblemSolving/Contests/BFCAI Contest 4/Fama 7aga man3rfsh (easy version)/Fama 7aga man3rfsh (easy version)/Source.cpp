@@ -13,6 +13,7 @@ int main() {
 	}
 	sort(arr, arr + n);
 	int sum = 0;
+	k += 1;
 	for (int i = 0; i < n; i++) {
 		if (arr[i] >= 0 && k) {
 			sum += arr[i];
