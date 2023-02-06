@@ -18,7 +18,7 @@ int f(string s, int n) {
 	return res;
 }
 
-int brute(string s, int n, int mark, int max) {
+/*int brute(string s, int n, int mark, int max) {
 	string s1, s2;
 	int n1 = 0, n2 = 0;
 	for (int i = 0; i < mark; i++) {
@@ -37,7 +37,7 @@ int brute(string s, int n, int mark, int max) {
 	if (mark + 1 != n)
 		brute(s, n, mark + 1, max);
 	return max;
-}
+}*/
 
 int main() {
 	ios_base::sync_with_stdio(false), cout.tie(NULL), cin.tie(NULL);
