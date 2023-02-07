@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c936d024-0815-4014-88fc-61ea4c21dac4}</ProjectGuid>
-    <RootNamespace>SubsequenceString</RootNamespace>
+    <ProjectGuid>{92c2fc5f-8a9b-4377-b523-79e2d4a2caac}</ProjectGuid>
+    <RootNamespace>SortString</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
