@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool cmp(char& c1, char& c2) {
-	return (c1 > c2);
-}
-
 int main() {
 	int n, q;
 	cin >> n >> q;
