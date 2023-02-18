@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+bool rev(char& c1, char& c2) {
+	return c1 > c2;
+}
 
 int main() {
 	int n, q;
@@ -24,12 +27,15 @@ int main() {
 		else if (x == "sort") {
 			int l, r;
 			cin >> l >> r;
-			sort(v.begin() + l - 1, v.begin() + r);
+			if (l <= r)
+				sort(v.begin() + l - 1, v.begin() + r);
+			else
+				sort(v.begin() + r - 1, v.begin() + l, rev);
 		}
 		else if (x == "reverse") {
 			int l, r;
 			cin >> l >> r;
-			reverse(v.begin() + l - 1, v.begin() + r);
+			reverse(v.begin() + min(l, r) - 1, v.begin() + max(l, r));
 		}
 		else if (x == "print") {
 			int pos;
@@ -39,8 +45,14 @@ int main() {
 		else if (x == "substr") {
 			int l, r;
 			cin >> l >> r;
-			for (int i = l - 1; i < r; i++)
-				cout << v[i];
+			if (l <= r) {
+				for (int i = l - 1; i < r; i++)
+					cout << v[i];
+			}
+			else {
+				for (int i = l - 1; i >= r - 1; i--)
+					cout << v[i];
+			}
 			cout << endl;
 		}
 		else if (x == "push_back") {
