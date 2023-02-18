@@ -3,9 +3,9 @@
 using namespace std;
 
 bool cmp(ll& l1, ll& l2) {
-	if (l1 + l2 % 2 != 0)
-		return l1 < l2;
-	return false;
+	if ((l1 + l2) % 2 == 0)
+		return false;
+	return (l1 <= l2);
 }
 
 int main() {
@@ -15,7 +15,20 @@ int main() {
 	vector<ll>v(n);
 	for (int i = 0; i < n; i++)
 		cin >> v[i];
-	sort(v.begin(), v.end(), cmp);
+	bool used = true;
+	while (used) {
+		used = false;
+		int lim = 0;
+		for (int j = 0; j < n; j++) {
+			lim++;
+			for (int i = 0; i < n - lim; i++) {
+				if ((v[i] + v[i + lim]) % 2 != 0 && v[i] > v[i + lim]) {
+					used = true;
+					swap(v[i], v[i + lim]);
+				}
+			}
+		}
+	}
 	for (int i = 0; i < n; i++)
 		cout << v[i] << " ";
 }
