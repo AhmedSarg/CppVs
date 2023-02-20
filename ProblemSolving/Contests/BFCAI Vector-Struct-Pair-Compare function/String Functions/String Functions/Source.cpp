@@ -27,32 +27,32 @@ int main() {
 		else if (x == "sort") {
 			int l, r;
 			cin >> l >> r;
-			if (l <= r)
-				sort(v.begin() + l - 1, v.begin() + r);
-			else
-				sort(v.begin() + r - 1, v.begin() + l, rev);
+			if (l > r)
+				swap(l, r);
+			l--;
+			sort(v.begin() + l, v.begin() + r);
 		}
 		else if (x == "reverse") {
 			int l, r;
 			cin >> l >> r;
-			reverse(v.begin() + min(l, r) - 1, v.begin() + max(l, r));
+			if (l > r)
+				swap(l, r);
+			l--;
+			reverse(v.begin() + l, v.begin() + r);
 		}
 		else if (x == "print") {
 			int pos;
 			cin >> pos;
-			cout << v[pos] << endl;
+			cout << v[pos - 1] << endl;
 		}
 		else if (x == "substr") {
 			int l, r;
 			cin >> l >> r;
-			if (l <= r) {
-				for (int i = l - 1; i < r; i++)
-					cout << v[i];
-			}
-			else {
-				for (int i = l - 1; i >= r - 1; i--)
-					cout << v[i];
-			}
+			if (l > r)
+				swap(l, r);
+			l--;
+			for (int i = l; i < r; i++)
+				cout << v[i];
 			cout << endl;
 		}
 		else if (x == "push_back") {
