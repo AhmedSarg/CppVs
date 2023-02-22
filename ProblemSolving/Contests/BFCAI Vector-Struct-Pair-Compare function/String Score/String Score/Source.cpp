@@ -47,6 +47,4 @@ int main() {
 		}
 	}
 	cout << score;
-	//5
-	//YWZZZ
 }
