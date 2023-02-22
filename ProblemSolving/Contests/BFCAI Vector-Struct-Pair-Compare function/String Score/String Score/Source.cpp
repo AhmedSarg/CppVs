@@ -14,7 +14,7 @@ int main() {
 		}
 		else
 		{
-			if (i == n - 1)
+			if (i == v.size() - 1)
 				last = true;
 			if (v[i] == 'V')
 			{
@@ -47,4 +47,6 @@ int main() {
 		}
 	}
 	cout << score;
+	//5
+	//YWZZZ
 }
