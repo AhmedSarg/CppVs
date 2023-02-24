@@ -25,7 +25,7 @@ int main() {
             qmx.pop_back();
         }
         else if (s == "top") {
-            cout << qmx[0] << endl;
+            cout << qmx[0] << "\n";
         }
     }
 }

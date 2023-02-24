@@ -20,7 +20,7 @@ int main() {
             qmn.pop();
         }
         else if (s == "top") {
-            cout << qmn.top() << endl;
+            cout << qmn.top() << "\n";
         }
     }
 }
