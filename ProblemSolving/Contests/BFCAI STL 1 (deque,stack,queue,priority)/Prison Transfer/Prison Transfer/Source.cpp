@@ -7,22 +7,23 @@ int main() {
     AhmedSarg;
     ll n, t, c;
     cin >> n >> t >> c;
-    vector<ll>q(n);
+    //queue<ll>q;
     ll way = 0;
+    ll cont = 0;
     for (ll i = 0; i < n; i++) {
-        cin >> q[i];
-    }
-    for (ll i = 0; i < n - c + 1; i++) {
-        bool co = true;
-        for (ll j = i; j < i + c; j++)
+        ll x;
+        cin >> x;
+        if (x <= t)
+            cont++;
+        else if (x > t && cont >= c)
         {
-            if (q[j] > t)
-            {
-                co = false;
-            }
+            way += cont - c + 1;
+            cont = 0;
         }
-        if (co)
-            way++;
+        else
+            cont = 0;
     }
+    if (cont >= c)
+        way += cont - c + 1;
     cout << way;
 }
