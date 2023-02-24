@@ -3,29 +3,24 @@
 #define ll long long
 using namespace std;
 
-bool cmp(ll& l1, ll& l2) {
-    return l1 > l2;
-}
-
 int main() {
     AhmedSarg;
     ll q;
     cin >> q;
-    vector<ll>qmx;
+    priority_queue<ll, vector<ll>, greater<ll>>qmn;
     while (q--) {
         string s;
         cin >> s;
         if (s == "push") {
             ll x;
             cin >> x;
-            qmx.push_back(x);
-            sort(qmx.begin(), qmx.end());
+            qmn.push(x);
         }
         else if (s == "pop") {
-            qmx.pop_back();
+            qmn.pop();
         }
         else if (s == "top") {
-            cout << qmx[0] << endl;
+            cout << qmn.top() << endl;
         }
     }
 }
