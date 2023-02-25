@@ -3,42 +3,37 @@
 #define ll long long
 using namespace std;
 
+bool cmp(pair<ll, ll>& l1, pair<ll, ll>& l2) {
+    return l1.first > l2.first;
+}
+
 int main() {
     AhmedSarg;
     ll n;
     cin >> n;
     vector<ll>v(n);
-    vector<string>res(n);
-    deque<ll>q;
-    deque<ll>qc;
-    priority_queue<pair<ll, ll>>pq;
-    priority_queue<pair<ll, ll>>pqc;
+    deque<ll>dq;
+    deque<ll>dqc;
     for (ll i = 0; i < n; i++) {
         cin >> v[i];
-        q.push_back(v[i]);
-        pq.push(make_pair(v[i], i));
+        dq.push_back(v[i]);
     }
-    for (int i = 0; i < n; i++) {
-        if (i == 0)
-        {
-            res[pq.top().second] = "both";
-            pq.pop();
-        }
-    }
-    /*for (ll i = 0; i < n; i++) {
-        qc = q;
-        bool right = true;
-        for (ll j = i + 1; j < n; j++)
-            if (qc.back() > v[i])
-                right = false;
-            else
-                qc.pop_back();
+    for (ll i = 0; i < n; i++) {
+        dqc = dq;
         bool left = true;
-        for (int j = i - 1; j >= 0; j--)
-            if (qc.front() > v[i])
-                left = false;
+        for (ll j = 0; j < i; j++) {
+            if (dqc.front() <= v[i])
+                dqc.pop_front();
             else
-                qc.pop_front();
+                left = false;
+        }
+        bool right = true;
+        for (ll j = n - 1; j > i; j--) {
+            if (dqc.back() <= v[i])
+                dqc.pop_back();
+            else
+                right = false;
+        }
         if (left && right)
             cout << "both\n";
         else if (left && !right)
@@ -47,5 +42,5 @@ int main() {
             cout << "right\n";
         else
             cout << "none\n";
-    }*/
+    }
 }

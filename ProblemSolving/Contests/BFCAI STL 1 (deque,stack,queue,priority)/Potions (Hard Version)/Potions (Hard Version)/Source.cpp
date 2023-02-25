@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     AhmedSarg;
-    int n;
+    ll n;
     cin >> n;
     ll sum = 0;
     priority_queue<ll, vector<ll>, greater<ll>>pq;
