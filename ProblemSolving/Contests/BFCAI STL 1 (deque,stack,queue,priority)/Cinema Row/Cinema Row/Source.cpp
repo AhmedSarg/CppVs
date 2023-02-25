@@ -3,10 +3,6 @@
 #define ll long long
 using namespace std;
 
-bool cmp(pair<ll, ll>& l1, pair<ll, ll>& l2) {
-    return l1.first > l2.first;
-}
-
 int main() {
     AhmedSarg;
     int n;
