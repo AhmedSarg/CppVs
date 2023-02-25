@@ -9,38 +9,34 @@ bool cmp(pair<ll, ll>& l1, pair<ll, ll>& l2) {
 
 int main() {
     AhmedSarg;
-    ll n;
+    int n;
     cin >> n;
-    vector<ll>v(n);
-    deque<ll>dq;
-    deque<ll>dqc;
-    for (ll i = 0; i < n; i++) {
-        cin >> v[i];
-        dq.push_back(v[i]);
-    }
-    for (ll i = 0; i < n; i++) {
-        dqc = dq;
-        bool left = true;
-        for (ll j = 0; j < i; j++) {
-            if (dqc.front() <= v[i])
-                dqc.pop_front();
-            else
-                left = false;
-        }
-        bool right = true;
-        for (ll j = n - 1; j > i; j--) {
-            if (dqc.back() <= v[i])
-                dqc.pop_back();
-            else
-                right = false;
-        }
-        if (left && right)
-            cout << "both\n";
-        else if (left && !right)
-            cout << "left\n";
-        else if (!left && right)
-            cout << "right\n";
+    priority_queue<int>pql;
+    priority_queue<int>pqr;
+    stack<int>stk;
+    vector<string>res(n);
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        stk.push(x);
+        pql.push(x);
+        if (x == pql.top())
+            res[i] += "left";
         else
-            cout << "none\n";
+            res[i] += "none";
+    }
+    for (int i = n - 1; i >= 0; i--) {
+        int x = stk.top();
+        stk.pop();
+        pqr.push(x);
+        if (x == pqr.top())
+            if (res[i] == "left")
+                res[i] = "both";
+            else if (res[i] == "none")
+                res[i] = "right";
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << res[i] << "\n";
     }
 }
