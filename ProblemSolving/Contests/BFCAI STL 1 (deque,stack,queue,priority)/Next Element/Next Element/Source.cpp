@@ -7,29 +7,50 @@ int main() {
     AhmedSarg;
     int n;
     cin >> n;
-    vector<ll>v(n);
+    vector<pair<ll, int>>v(n);
+    int j = 0;
     for (int i = 0; i < n; i++)
-        cin >> v[i];
+    {
+        cin >> v[i].first;
+        v[i].second = -1;
+        if (i != 0) {
+            int j = i - 1;
+            while (v[i].first > v[j].first)
+            {
+                if (v[j].second == -1)
+                {
+                    v[j].second = i;
+                    break;
+                }
+                else if (v[j].second < j)
+                {
+                    int k;
+                    k = j;
+                    j = v[j].second;
+                    v[k].second = i;
+                }
+            }
+            while (v[i].first <= v[j].first)
+            {
+                if (v[j].second == -1)
+                {
+                    v[i].second = j;
+                    break;
+                }
+                else
+                    v[i].second = v[j].second;
+            }
+        }
+    }
     int q;
     cin >> q;
     while (q--) {
         int i;
         cin >> i;
-        if (i >= n)
-            cout << -1 << "\n";
+        i--;
+        if (v[i].second != -1)
+            cout << v[i].second + 1 << "\n";
         else
-        {
-            i--;
-            bool found = false;
-            for (int j = i + 1; j < n; j++) {
-                if (v[i] < v[j]) {
-                    cout << j + 1 << "\n";
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-                cout << -1 << "\n";
-        }
+            cout << -1 << "\n";
     }
 }
