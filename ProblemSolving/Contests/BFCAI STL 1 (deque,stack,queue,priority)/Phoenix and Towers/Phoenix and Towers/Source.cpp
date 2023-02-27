@@ -10,50 +10,43 @@ int main() {
     while (t--) {
         int n, m, x;
         cin >> n >> m >> x;
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>pq;
+        priority_queue<pair<int, int>>blocks;
+        vector<pair<int, int>>v(n);
+        vector<int>res(n);
         for (int i = 0; i < n; i++)
         {
-            int tmp;
-            cin >> tmp;
-            pq.push(make_pair(tmp, i));
+            cin >> v[i].first;
+            v[i].second = i;
+            blocks.push(v[i]);
         }
-        priority_queue<int, vector<int>, greater<int>>s;
-        vector<int>res(n);
-        int j = 0;
-        for (int i = 0; i < n; i++) {
-            if (j == m)
-                j = 0;
-            if (s.size() != m)
-            {
-                s.push(pq.top().first);
+        int ind = 1;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>towers;
+        while (!blocks.empty()) {
+            if (towers.size() < m) {
+                towers.push(make_pair(blocks.top().first, ind));
+                res[blocks.top().second] = ind++;
             }
             else {
-                int tmp = s.top() + pq.top().first;
-                s.pop();
-                s.push(tmp);
+                int tmp1 = towers.top().first + blocks.top().first;
+                int tmp2 = towers.top().second;
+                towers.pop();
+                towers.push(make_pair(tmp1, tmp2));
+                res[blocks.top().second] =tmp2;
             }
-            res[pq.top().second] = j + 1;
-            pq.pop();
-            j++;
+            blocks.pop();
         }
-        int c1 = s.top(), c2;
-        while (m != 1)
-        {
-            s.pop();
-            m--;
-        }
-        c2 = s.top();
+        int c1 = towers.top().first;
+        while (towers.size() > 1)
+            towers.pop();
+        int c2 = towers.top().first;
         if (abs(c1 - c2) > x)
-            cout << "NO" << "\n";
+            cout << "NO\n";
         else
         {
-            cout << "YES" << "\n";
+            cout << "YES\n";
             for (int i = 0; i < n; i++)
                 cout << res[i] << " ";
             cout << "\n";
         }
     }
 }
-//1
-//5 2 3
-//1 4 2 4 10
