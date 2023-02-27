@@ -3,44 +3,62 @@
 #define ll long long
 using namespace std;
 
+class monotonic_stack {
+private:
+    stack<pair<ll, int>>s;
+public:
+    void push(pair<ll, int> x) {
+        if (!s.empty())
+            while (s.top().first < x.first)
+            {
+                s.pop();
+                if (s.empty())
+                    break;
+            }
+        s.push(x);
+    }
+    pair<ll, int> pop() {
+        pair<ll, int> tmp = s.top();
+        s.pop();
+        return tmp;
+    }
+    pair<ll, int> top() {
+        return s.top();
+    }
+    bool empty() {
+        if (s.empty())
+            return true;
+        else
+            return false;
+    }
+};
+
 int main() {
     AhmedSarg;
+
     int n;
     cin >> n;
-    vector<pair<ll, int>>v(n);
-    int j = 0;
+    vector<int>res(n, -1);
+    monotonic_stack st;
+
     for (int i = 0; i < n; i++)
     {
-        cin >> v[i].first;
-        v[i].second = -1;
-        if (i != 0) {
-            int j = i - 1;
-            while (v[i].first > v[j].first)
+        ll x;
+        int y;
+        cin >> x;
+        y = i + 1;
+        pair<ll, int> v = make_pair(x, y);
+        if (i == n - 1)
+            res[i] = -1;
+        if (!st.empty())
+            while (st.top().first < v.first)
             {
-                if (v[j].second == -1)
-                {
-                    v[j].second = i;
+                res[st.top().second - 1] = v.second;
+                st.pop();
+                if (st.empty())
                     break;
-                }
-                else if (v[j].second < j)
-                {
-                    int k;
-                    k = j;
-                    j = v[j].second;
-                    v[k].second = i;
-                }
             }
-            while (v[i].first <= v[j].first)
-            {
-                if (v[j].second == -1)
-                {
-                    v[i].second = j;
-                    break;
-                }
-                else
-                    v[i].second = v[j].second;
-            }
-        }
+        st.push(v);
     }
     int q;
     cin >> q;
@@ -48,8 +66,8 @@ int main() {
         int i;
         cin >> i;
         i--;
-        if (v[i].second != -1)
-            cout << v[i].second + 1 << "\n";
+        if (res[i] != -1)
+            cout << res[i] << "\n";
         else
             cout << -1 << "\n";
     }
