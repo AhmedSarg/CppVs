@@ -11,7 +11,7 @@ int main() {
         ll n;
         cin >> n;
         vector<ll>v(n);
-        for (int i = 0; i < n; i++) {
+        for (ll i = 0; i < n; i++) {
             cin >> v[i];
         }
         sort(v.begin(), v.end());
@@ -22,11 +22,12 @@ int main() {
             v[0] = 1;
         }
         for (ll i = 0; i < n - 1; i++) {
-            while (abs(v[i] - v[i + 1]) > 1)
+            if (abs(v[i] - v[i + 1]) > 1)
             {
-                v[i + 1]--;
-                spl++;
+                spl += abs(v[i] - v[i + 1]);
+                v[i + 1] = v[i] + 1;
             }
+
         }
         
         cout << spl << "\n";
