@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7a54248d-2f8d-458f-b406-2356c17cc619}</ProjectGuid>
-    <RootNamespace>ParanoidString</RootNamespace>
+    <ProjectGuid>{ca827ccb-551c-4c0f-a4b7-2c6a99823f81}</ProjectGuid>
+    <RootNamespace>Aramicscript</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

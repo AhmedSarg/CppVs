@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7a54248d-2f8d-458f-b406-2356c17cc619}</ProjectGuid>
-    <RootNamespace>ParanoidString</RootNamespace>
+    <ProjectGuid>{a8087f7f-4a7a-49a7-b355-4fd01812f018}</ProjectGuid>
+    <RootNamespace>Frindsandmoney</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
