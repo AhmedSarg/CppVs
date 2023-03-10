@@ -8,25 +8,54 @@ int main() {
     int n, k;
     cin >> n >> k;
     multiset<ll>ms;
+    ll x;
     for (int i = 0; i < n; i++) {
-        ll x;
-        cin >> x;
-        ms.insert(x);
+        ll y;
+        cin >> y;
+        ms.insert(y);
+        if (i == k - 1)
+            x = y;
     }
-    int j = 0;
-    ll ol = -1, ne = -1;
-    for (auto i : ms) {
-        j++;
-        if (j == k)
-            ol = i;
-        else if (j == k + 1)
-            ne = i;
-    }
-    ll i = ol;
-    while (ne - i < 1 && i < ne)
-        i++;
-    if (ne - i >= 1 && ne - i <= pow(10, 9) && i < ne)
-        cout << i;
+    if (k == 0)
+        if (*ms.begin() >= 2)
+            cout << *ms.begin() - 1;
+        else
+            cout << -1;
     else
-        cout << -1;
+    {
+        int j = 0;
+        ll ol, ne;
+        bool flag = true;
+        for (auto i : ms) {
+            j++;
+            if (k == n) {
+                if (j == n)
+                {
+                    flag = false;
+                    cout << i;
+                }
+            }
+            else
+            {
+                if (j == k)
+                    ol = i;
+                else if (j == k + 1)
+                    ne = i;
+            }
+        }
+        if (flag)
+        {
+            ll i = ol;
+            if (i >= 1 && i <= 1000000000 && i < ne)
+                cout << i;
+            else
+                cout << -1;
+        }
+    }
 }
+
+//5 0
+//2 3 4 5 6
+
+//5 5
+//3 3 3 3 3
