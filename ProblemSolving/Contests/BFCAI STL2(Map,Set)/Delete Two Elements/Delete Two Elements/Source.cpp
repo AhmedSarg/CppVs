@@ -9,31 +9,20 @@ int main() {
     cin >> t;
     while (t--)
     {
-        int n;
+        ll n;
         cin >> n;
-        multimap<double, double>mp;
+        map<double, int>mp;
+        vector<double>ms(n);
         double s = 0;
         for (int i = 0; i < n; i++) {
-            double x;
-            cin >> x;
-            mp.insert({ x, -1 });
-            s += x;
+            cin >> ms[i];
+            s += ms[i];
         }
-        double mean = s / (float)n;
-        int res = 0;
-        for (auto& it : mp) {
-            if (it.first >= mean * 2)
-                it.second = it.first - mean * 2;
-            else
-                it.second = mean * 2 - it.first;
-        }
-        for (auto it : mp) {
-            auto item1 = mp.find(it.first);
-            auto item2 = mp.find(it.second);
-            if (item2 != mp.end())
-            {
-                res++;
-            }
+        ll res = 0;
+        double mean = (s * 2) / n;
+        for (auto it : ms) {
+            res += mp[mean - it];
+            mp[it]++;
         }
         cout << res << "\n";
     }
