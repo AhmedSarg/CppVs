@@ -11,25 +11,25 @@ int main() {
         ll n;
         cin >> n;
         vector<ll>v(n);
+        ll spell = 0;
         for (ll i = 0; i < n; i++) {
             cin >> v[i];
         }
         sort(v.begin(), v.end());
-        ll spl = 0;
-        if (v[0] != 1)
+        if (v[0] > 1)
         {
-            spl += v[0] - 1;
+            spell += v[0] - 1;
             v[0] = 1;
         }
-        for (ll i = 0; i < n - 1; i++) {
-            if (abs(v[i] - v[i + 1]) > 1)
+        ll tmp = 1;
+        for (ll i = 1; i < n; i++) {
+            if (v[i] - tmp > 1)
             {
-                spl += abs(v[i] - v[i + 1]);
-                v[i + 1] = v[i] + 1;
+                spell += v[i] - tmp - 1;
+                v[i] = tmp + 1;
             }
-
+            tmp = v[i];
         }
-        
-        cout << spl << "\n";
+        cout << spell << "\n";
     }
 }
