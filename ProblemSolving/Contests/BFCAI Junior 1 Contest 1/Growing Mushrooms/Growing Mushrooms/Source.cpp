@@ -4,7 +4,7 @@
 using namespace std;
 
 bool cmp(pair<int, double>& p1, pair<int, double>& p2) {
-    return p1.second >= p2.second;
+    return p1.second > p2.second;
 }
 
 int main() {
