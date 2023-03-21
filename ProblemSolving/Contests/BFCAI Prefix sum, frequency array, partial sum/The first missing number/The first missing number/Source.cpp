@@ -25,6 +25,7 @@ int main() {
         if (vn[i] == 0) {
             cout << -i;
             found = true;
+            break;
         }
     }
     if (!found) {
