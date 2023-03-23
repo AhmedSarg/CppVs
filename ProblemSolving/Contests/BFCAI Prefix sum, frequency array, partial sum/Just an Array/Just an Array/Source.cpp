@@ -6,4 +6,10 @@ using namespace std;
 
 int main() {
     AhmedSarg;
+    int n, k;
+    cin >> n >> k;
+    vector<int>v(n);
+    for0(i, n) {
+        cin >> v[i];
+    }
 }
