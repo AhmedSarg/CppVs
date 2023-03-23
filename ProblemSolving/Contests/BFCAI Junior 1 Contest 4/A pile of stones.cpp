@@ -10,4 +10,16 @@ int main() {
     #ifndef ONLINE_JUDGE
         fileio;
     #endif
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int sum = 0;
+    for0(i, n) {
+        if (s[i] == '+')
+            sum++;
+        else if (s[i] == '-' && sum > 0)
+            sum--;
+    }
+    cout << sum;
 }
