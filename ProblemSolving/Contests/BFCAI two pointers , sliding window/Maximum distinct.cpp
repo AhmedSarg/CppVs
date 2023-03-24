@@ -11,5 +11,25 @@ int main() {
     #ifndef ONLINE_JUDGE
         fileio;
     #endif
-    
+    int n, k, cnt = 0, mx = 0;
+    string s;
+    cin >> n >> k >> s;
+    map<char, int>mp;
+    for0(i, k) {
+        mp[s[i]]++;
+    }
+    mx = mp.size();
+    cnt = mp.size();
+    int l = 0;
+    int r = k;
+    while (r < n) {
+        if (!mp[s[r]])cnt++;
+        mp[s[r]]++;
+        r++;
+        mp[s[l]]--;
+        if (!mp[s[l]])cnt--;
+        l++;
+        mx = max(mx, cnt);
+    }
+    cout << mx;
 }
