@@ -14,27 +14,24 @@ int main() {
     int n;
     ll m;
     cin >> n >> m;
-    vector<pair<int, ll>>v(n + 1);
-    for1(i, n) {
-        cin >> v[i].first;
-        v[i].second = v[i - 1].second + v[i].first;
+    vector<int>v(n);
+    for0(i, n) {
+        cin >> v[i];
     }
-    pair<int, ll>* n1 = &v[1];
-    pair<int, ll>* n2 = &v[1];
-    while (true) {
-        if (n1 > n2) {
-            cout << -1;
-            break;
+    int l = 0;
+    int r = 0;
+    int ans = INT_MAX;
+    int sum = 0;
+    while (r < n && l <= r) {
+        sum += v[r];
+        while (sum >= m) {
+            ans = min(ans, r - l + 1);
+            sum -= v[l];
+            l++;
         }
-        if (n2->second - (n1 - 1)->second == m) {
-            cout << n2 - n1;
-            break;
-        }
-        else if (n2->second - (n1 - 1)->second > m) {
-            n1++;
-        }
-        else {
-            n2++;
-        }
+        r++;
     }
+    if (ans == INT_MAX)
+        ans = -1;
+    cout << ans;
 }
