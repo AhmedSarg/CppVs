@@ -11,4 +11,23 @@ int main() {
     #ifndef ONLINE_JUDGE
         fileio;
     #endif
+    int n, m;
+    cin >> n >> m;
+    int j = 0;
+    vector<ll>v(n);
+    for0(i, n) {
+        cin >> v[i];
+    }
+    int c = 0;
+    for0(i, m) {
+        ll x;
+        cin >> x;
+        for (j; j < n; j++) {
+            if (v[j] < x)
+                c++;
+            else
+                break;
+        }
+        cout << c << " ";
+    }
 }
