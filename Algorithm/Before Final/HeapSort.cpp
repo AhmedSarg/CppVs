@@ -6,15 +6,14 @@ void max_heap(int arr[], int size, int parent) {
     int right_child = parent * 2 + 2;
     int max = parent;
 
-    if (left_child < size && arr[left_child] >= arr[max]) {
+    if (left_child < size && arr[left_child] > arr[max]) {
         max = left_child;
     }
-    if (right_child < size && arr[right_child] >= arr[max]) {
+    if (right_child < size && arr[right_child] > arr[max]) {
         max = right_child;
     }
-    
     if (max != parent) {
-        swap(arr[parent], arr[max]);
+        swap (arr[max], arr[parent]);
         max_heap(arr, size, max);
     }
 }
