@@ -6,6 +6,10 @@
 #define fileio freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 using namespace std;
 
+bool cmp(pair<int, int> &p1, pair<int, int> &p2) {
+    return p1.first > p2.first;
+}
+
 int main() {
     AltF4;
     #ifndef ONLINE_JUDGE
@@ -13,21 +17,18 @@ int main() {
     #endif
     int n;
     cin >> n;
-    n *= 2;
-    vector<ll>v(n);
-    bool same = true;
+    vector<pair<int, int>> v(n);
     for0(i, n) {
-        cin >> v[i];
-        if (v[i] != v[0])
-            same = false;
+        cin >> v[i].first;
+        v[i].second = i + 1;
     }
-    if (same) {
-        cout << -1;
+    sort(v.begin(), v.end(), cmp);
+    int res = 0;
+    for0 (i, n) {
+        res += v[i].first * i + 1;
     }
-    else {
-        sort(v.begin(), v.end());
-        for0(i, n) {
-            cout << v[i] << " ";
-        }
+    cout << res << "\n";
+    for0 (i, n) {
+        cout << v[i].second << " ";
     }
 }

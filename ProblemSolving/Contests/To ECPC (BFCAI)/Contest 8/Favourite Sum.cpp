@@ -6,16 +6,24 @@
 #define fileio freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 using namespace std;
 
-void printMap(map<int, int> mp) {
-    map<int, int>::iterator itr;
-    for(itr = mp.begin(); itr != mp.end(); itr++) {
-        cout << itr->first << " " << itr->second << "\n";
-    }
-}
-
 int main() {
     AhmedSarg;
     #ifndef ONLINE_JUDGE
         fileio;
     #endif
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        ll x;
+        cin >> n >> x;
+        ll sum = x * (x + 1) / 2;
+        vector<ll>v(n);
+        for0(i, n) {
+            cin >> v[i];
+            if (v[i] <= x)
+                sum -= v[i] * 2;
+        }
+        cout << sum << "\n";
+    }
 }

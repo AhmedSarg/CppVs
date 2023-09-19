@@ -13,21 +13,12 @@ int main() {
     #endif
     int n;
     cin >> n;
-    n *= 2;
     vector<ll>v(n);
-    bool same = true;
     for0(i, n) {
         cin >> v[i];
-        if (v[i] != v[0])
-            same = false;
     }
-    if (same) {
-        cout << -1;
-    }
-    else {
-        sort(v.begin(), v.end());
-        for0(i, n) {
-            cout << v[i] << " ";
-        }
+    sort(v.begin(), v.end());
+    for0(i, n) {
+        cout << v[i] << " ";
     }
 }

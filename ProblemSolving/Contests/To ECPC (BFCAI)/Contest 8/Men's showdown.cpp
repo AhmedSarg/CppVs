@@ -6,16 +6,17 @@
 #define fileio freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 using namespace std;
 
-void printMap(map<int, int> mp) {
-    map<int, int>::iterator itr;
-    for(itr = mp.begin(); itr != mp.end(); itr++) {
-        cout << itr->first << " " << itr->second << "\n";
-    }
-}
-
 int main() {
     AhmedSarg;
     #ifndef ONLINE_JUDGE
         fileio;
     #endif
+    int n;
+    cin >> n;
+    if (n % 2 == 0) {
+        cout << 1;
+    }
+    else {
+        cout << 2;
+    }
 }
